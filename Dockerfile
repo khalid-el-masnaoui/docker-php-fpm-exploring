@@ -18,3 +18,14 @@ RUN groupmod -g $GID www-data
 
 EXPOSE 9000
 
+# PID directory
+RUN install -d -m 0755 -o www-data -g www-data /run/php-fpm
+
+#custom fpm configs
+COPY ./configurations/ /usr/local/etc/
+
+#fpm logs
+#RUN install -d -o www-data -g root /var/log/php && \
+#    install -m 0666 -o www-data -g root /dev/null /var/log/php/php-fpm.log
+
+#USER www-data
