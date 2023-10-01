@@ -29,8 +29,12 @@ COPY ./configurations/ /usr/local/etc/
 RUN install -d -o www-data -g www-data /var/log/php && \
     install -o www-data -g www-data /dev/null /var/log/php/php-fpm.log
 
-USER www-data
 
+#clean dirs
+RUN  apt-get clean && \
+    rm -rf var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+USER www-data
 
 #Define mountable directories -- for developement.
 VOLUME ["/var/log/php"]
