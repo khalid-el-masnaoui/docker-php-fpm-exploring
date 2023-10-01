@@ -1,6 +1,6 @@
 # PHP-FPM container custom image
 
-## _Custom php-fpm image with all functionalities
+## _Custom php-fpm image with all functionalities_
 
 Exploring docker by creating custom php-fpm with all functionalities, and mapping the container user UID with the host UID to make shared files (via volumes) accessibles.
 The php-fpm service is running as a non-root (www-data user).
