@@ -11,15 +11,23 @@ The PHP-FPM image under this repository does not use default configs instead it 
 
 
 ## Docker :hammer_and_wrench:
+The current php-fpm service will be listening on unix socket connection.
 By default, the Docker will expose ports 9000/tcp for port mappings (in case php-fpm is listening to tcp instead of unix socket connections), so change this within the
 Dockerfile if necessary. When ready, simply use the Dockerfile to
 build the image.
 
-```sh
-cd docker-php-fpm-exploring
+#####  Installation  :electric_plug:
+Clone this repository and follow the simple steps:
+
+```bash
+# clone
+$ git clone git@github.com:khalid-el-masnaoui/docker-php-fpm-exploring.git
+
+#cd into the working diretcory
+$ cd docker-php-fpm-exploring
 
 #image build
-docker build . -t cs-php-fpm -f Dockerfile --build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
+$ docker build . -t cs-php-fpm -f Dockerfile --build-arg="UID=$(id -u)" --build-arg="GID=$(id -g)"
 ```
 
 This will create the custom php-fpm image and configure the service with the custom configurations.
@@ -29,7 +37,7 @@ your host. In this example, we simply use unix sockets for connections
 
 ```sh
 #running the container container
- docker run -it  --rm   --name php-fpm --mount type=bind,source=./logs,destination=/var/log/php cs-php-fpm
+$ docker run -it  --rm   --name php-fpm --mount type=bind,source=./logs,destination=/var/log/php cs-php-fpm
 
 #the bind mounts are for developement purposes
 ```
