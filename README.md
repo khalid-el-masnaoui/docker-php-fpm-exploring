@@ -11,7 +11,7 @@ The PHP-FPM image under this repository does not use default configs instead it 
 
 
 ## Docker :hammer_and_wrench:
-By default, the Docker will expose ports 9000/tcp for port mappings (in case php-fpm is listening tp tcp instead of socket connections), so change this within the
+By default, the Docker will expose ports 9000/tcp for port mappings (in case php-fpm is listening to tcp instead of unix socket connections), so change this within the
 Dockerfile if necessary. When ready, simply use the Dockerfile to
 build the image.
 
